@@ -29,5 +29,8 @@
                 <span style="color:#FFFFFF;font-family:'Roboto Th';font-size:21px;"><strong><a
                                 href="mailto:{{ config('info.email') }}"
                                 class="style1">{{ config('info.email') }}</a></strong></span></div>
+        <div style="position absolute; right:10; bottom:10;color:rgba(255, 255, 255, 0.4)">
+        \<\/\> <i class="fas fa-arrow-right"></i> <i class="fas fa-heart"></i> <i class="fas fa-arrow-right"></i> <a href="http://slownut.com">SlowNut</a>
+        </div>
     </div>
 </div>

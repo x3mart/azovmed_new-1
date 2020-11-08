@@ -29,8 +29,8 @@
                 <span style="color:#FFFFFF;font-family:'Roboto Th';font-size:21px;"><strong><a
                                 href="mailto:{{ config('info.email') }}"
                                 class="style1">{{ config('info.email') }}</a></strong></span></div>
-        <div style="position:absolute;left:625px;top:181px;width:319px;height:28px;text-align:right;color:rgba(255, 255, 255, 0.4)">
-        <i class="fas fa-code"></i> <i class="fas fa-arrow-right"></i> <i class="fas fa-heart"></i> <i class="fas fa-arrow-right"></i> <a style="text-decoration:none;color:rgba(255, 255, 255, 0.4);" target="blank" href="http://slownut.com">SlowNut</a>
+        <div style="position:absolute;left:625px;top:181px;width:319px;height:28px;text-align:right;color:rgba(255, 255, 255, 0.3)">
+        <i class="fas fa-code fa-2x"></i> <i class="fas fa-arrow-right"></i> <i class="fas fa-heart fa-2x"></i> <i class="fas fa-arrow-right"></i> <a style="text-decoration:none;color:rgba(255, 255, 255, 0.3);" target="blank" href="http://slownut.com">SlowNut</a>
         </div>
     </div>
 </div>

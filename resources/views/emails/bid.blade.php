@@ -1,3 +1,3 @@
-<p>Email/телефон: {{ $email }}<br/>
-Имя: {{ $name }}<br/>
-Со страницы: {{ $referrer }}</>
+<p>Email/телефон: {{ $data['email'] }}<br/>
+Имя: {{ $data['name'] }}<br/>
+Со страницы: {{ $data['referrer'] }}</p>

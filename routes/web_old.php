@@ -34,7 +34,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/category/{catAlias}/item/{productAlias}', ShowProductController::class)->name('product');
 Route::get('/category/{catAlias}', ShowCategoryController::class)->name('category');
-Route::post('/sendBid', SendBidController::class);
+Route::post('/sendBid', ['before' => 'csrf', SendBidController::class, '__invoke']);
 Route::get('/sitemap.xml', SiteMapController::class);
 Route::get('robots.txt', RobotTxtController::class);
 Route::get('register');

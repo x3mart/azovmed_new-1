@@ -28,7 +28,7 @@ class SendOffer extends Mailable
      */
     public function build()
     {
-        return $this->from('aazovmed@yandex.ru')
+        return $this->from('aazovmed@gmail.com')
                     ->subject('Прайс AzovMed.com для ' . $this->name)
                     ->attach(base_path() . "/public/kp/price.xlsx", ['as' => 'Оптовый прайслист.xlsx'])
                     ->attach(base_path() . "/public/kp/ipcard.doc", ['as' => 'Карточка предпринимателя.doc'])

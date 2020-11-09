@@ -28,7 +28,7 @@ class BidRecieved extends Mailable
      */
     public function build()
     {
-        return $this->from('aazovmed@yandex.ru')
+        return $this->from('aazovmed@gmail.com')
                     ->subject('Заявка на сайте Azovmed')
                     ->view('emails.bid',['data' => $this->data]);
     }

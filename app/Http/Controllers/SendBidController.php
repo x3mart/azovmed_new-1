@@ -30,10 +30,8 @@ class SendBidController extends Controller
 
         if (!filter_var($request->email, FILTER_VALIDATE_EMAIL) === false){
             Mail::to($data['email'])
-                ->bcc(['azovmed@bk.ru','supral2@mail.ru'])
                 ->send(new SendOffer($data));
-            Mail::to('azovmedopt@yandex.ru')
-                ->bcc('mafidze@gmail.com')
+            Mail::to('azovcev_valera@mail.ru')
                 ->send(new BidRecieved($data));
             $isSuccess = true;
         } else {

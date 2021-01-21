@@ -5,10 +5,3 @@
     <input type="email" id="indexEditbox2" style="position:absolute;left:28px;top:68px;width:249px;height:43px;line-height:43px;z-index:30;" name="email" required placeholder="Ваш e-mail">
     <input type="submit" id="indexButton1" value="Заказать" style="position:absolute;left:27px;top:121px;width:249px;height:50px;z-index:29;">
 </form>
-<script>
-document.getElementById("indexButton1").addEventListener('click', function(e){
-    e.preventDefault();
-    this.setAttribute('disabled', true);
-    document.getElementById('indexForm1').submit()
-});
-</script>

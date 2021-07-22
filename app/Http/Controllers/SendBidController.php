@@ -31,14 +31,14 @@ class SendBidController extends Controller
         if (!filter_var($request->email, FILTER_VALIDATE_EMAIL) === false){
             Mail::to($data['email'])
                 ->send(new SendOffer($data));
-            Mail::to('azovcev_valera@mail.ru')
-                ->send(new BidRecieved($data));
+            // Mail::to('azovcev_valera@mail.ru')
+            //     ->send(new BidRecieved($data));
             $isSuccess = true;
         } else {
             $isSuccess = false;
         }
 
-        // Bid::create(['name' => $data['name'], 'phone_or_email' => $data['email']]);
+        Bid::create(['name' => $data['name'], 'phone_or_email' => $data['email']]);
 
         return view(($isSuccess ? 'success' : 'fail') . 'Send');
 

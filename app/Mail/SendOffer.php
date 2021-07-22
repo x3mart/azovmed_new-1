@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Offer;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -19,6 +20,7 @@ class SendOffer extends Mailable
     public function __construct($data)
     {
         $this->name= $data['name'];
+        $this->offer = Offer::first();
     }
 
     /**
@@ -28,10 +30,11 @@ class SendOffer extends Mailable
      */
     public function build()
     {
-        return $this->from('aazovmed@gmail.com')
+
+        return $this->from($this->offer->from)
                     ->subject('Прайс AzovMed.com для ' . $this->name)
-                    ->attach(base_path() . "/public/kp/price.xlsx", ['as' => 'Оптовый прайслист.xlsx'])
-                    ->attach(base_path() . "/public/kp/ipcard.doc", ['as' => 'Карточка предпринимателя.doc'])
-                    ->view('emails.offer', ['name' => $this->name]);
+                    ->attach(storage_path('app/') . $this->offer->kpfile, ['as' => 'Оптовый прайслист.xlsx'])
+                    ->attach(storage_path('app/'). $this->offer->ipcard, ['as' => 'Карточка предпринимателя.doc'])
+                    ->view('emails.offer', ['name' => $this->name, 'offer' => $this->offer]);
     }
 }

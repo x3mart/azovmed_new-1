@@ -38,6 +38,8 @@ class CategoryController extends Controller
     {
         Category::create([
             'name' => $request->name,
+            'title' => $request->name,
+            'body' => $request->body,
             'is_visible' => true,
             'alias' => Str::of($request->name)->slug('_')
         ]);
@@ -63,7 +65,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', ['category' => $category]);
     }
 
     /**
@@ -75,7 +77,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $data = $request->except('_token');
+        $data['is_visible'] = isset($data['is_visible']) ? 1 : 0;
+        $category->update($data);
+
+        return back();
     }
 
     /**

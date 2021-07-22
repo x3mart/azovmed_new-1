@@ -54,6 +54,7 @@
                 <li><a href="{{ url('/admin') }}">Товары</a></li>
                 <li><a href="{{ route('product.create') }}">Добавить товар</a></li>
                 <li><a href="{{ route('category.create') }}">Добавить категорию</a></li>
+                <li><a href="{{ route('offer.edit',['offer' => 1]) }}">Редактировать предложение</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

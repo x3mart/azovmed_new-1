@@ -8,7 +8,11 @@
                     <div class="panel-heading">Dashboard</div>
                     <div class="col-md-6">
                         @foreach($categories as $category)
-                            <h4>{{ $category->name }}</h4>
+                            <h4>
+                                <a href="{{ route('category.edit', ['category' => $category->id]) }}">
+                                    {{ $category->name }}
+                                </a>
+                            </h4>
                             @foreach($category->products as $product)
                                 <li>
                                     <a href="{{ route('product.edit', ['product' => $product->id]) }}">

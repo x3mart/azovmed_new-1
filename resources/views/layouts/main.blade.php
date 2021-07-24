@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery.modal.min.css') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
-    <link rel="stylesheet" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome.min.js" type="text/javascript" charset="utf-8"></script>
 @yield('stylesheets')
@@ -53,17 +53,18 @@
     <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
     <meta name="description" content="@yield('meta_description')"/>
     <meta name='yandex-verification' content='682daa21932c71cf' />
+    @livewireStyles
 </head>
 <body>
 
 @include('modal.bid')
-@include('header')
+<livewire:pages.header :key="'header'.now()"/>
 
 <div id="fullContainer">
     @yield('content')
 </div>
 
-@include('footer')
-
+<livewire:pages.footer :key="'footer'.now()"/>
+@livewireScripts
 </body>
 </html>

@@ -8,10 +8,12 @@
             @endif
             <div style="width:170px; height:150px; line-height:135px; overflow: hidden">
                 <a href="{{ route('product', ['productAlias' => $product->alias, 'catAlias' => $product->category->alias]) }}">
+                    @if($product->images->isNotEmpty())
                     <img title="{{ $product->name }} оптом, от производителя"
                          alt="{{ $product->name }} оптом, от производителя"
                          style="width:170px; max-height: 150px;"
                          src="{{ asset($product->images->first()->name) }}">
+                    @endif
                 </a>
             </div>
             <a style="height: 70px; font-size:18px; display: block; margin-top:10px; text-align: center; text-decoration: none; color:#000; font-weight: normal;font-family: 'Roboto Lt';"

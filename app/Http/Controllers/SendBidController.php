@@ -20,6 +20,9 @@ class SendBidController extends Controller
     public function __invoke(Request $request)
     {
         $data = $request->except('__token');
+        if(!$data['email'] || $data['name']){
+            return back();
+        }
 
         //check if robot spam sender
         if (preg_match("/[\d]+/", $request->name, $match)) {
@@ -38,7 +41,7 @@ class SendBidController extends Controller
             $isSuccess = false;
         }
 
-        // Bid::create(['name' => $data['name'], 'phone_or_email' => $data['email']]);
+        Bid::create(['name' => $data['name'], 'phone_or_email' => $data['email']]);
 
         return view(($isSuccess ? 'success' : 'fail') . 'Send');
 

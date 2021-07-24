@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Laravel</title>
-
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"
           integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -17,10 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
+    @livewireStyles
+    @yield('stylesheets')
     <style>
         body {
             font-family: 'Lato';
+            padding-top: 0;
         }
 
         .fa-btn {
@@ -55,6 +57,7 @@
                 <li><a href="{{ route('product.create') }}">Добавить товар</a></li>
                 <li><a href="{{ route('category.create') }}">Добавить категорию</a></li>
                 <li><a href="{{ route('offer.edit',['offer' => 1]) }}">Редактировать предложение</a></li>
+                <li><a href="{{ route('page.edit', ['page' => 1]) }}">Редактировать разделы</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -97,9 +100,9 @@
 <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
 
-
+<script src="//unpkg.com/alpinejs" defer></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-
+@livewireScripts
 
 <script>
     $(function () {

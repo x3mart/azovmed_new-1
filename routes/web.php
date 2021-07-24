@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminsHomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\OfferController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RobotTxtController;
 use App\Http\Controllers\SendBidController;
@@ -51,6 +52,7 @@ Route::group([
     Route::resource('product', ProductController::class)->except(['destroy', 'index', 'show']);
     Route::resource('category', CategoryController::class);
     Route::resource('offer', OfferController::class)->only(['edit', 'update']);
+    Route::resource('page', PageController::class)->only(['edit', 'update']);
     Route::get('admin/product/{product}/delete',[ProductController::class, 'delete'])->name('product.delete');
     Route::get('image/{image}/delete', [ImageController::class, 'destroy'])->name('image.delete');
     Route::post('ajax/product/position', [ProductController::class, 'ajaxProductPosition'])->name('ajax.productPosition');

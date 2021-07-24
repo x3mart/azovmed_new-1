@@ -20,6 +20,9 @@ class SendBidController extends Controller
     public function __invoke(Request $request)
     {
         $data = $request->except('__token');
+        if(!$data['email'] || $data['name']){
+            return back();
+        }
 
         //check if robot spam sender
         if (preg_match("/[\d]+/", $request->name, $match)) {
@@ -31,8 +34,8 @@ class SendBidController extends Controller
         if (!filter_var($request->email, FILTER_VALIDATE_EMAIL) === false){
             Mail::to($data['email'])
                 ->send(new SendOffer($data));
-            // Mail::to('azovcev_valera@mail.ru')
-            //     ->send(new BidRecieved($data));
+            Mail::to('azovcev_valera@mail.ru')
+                ->send(new BidRecieved($data));
             $isSuccess = true;
         } else {
             $isSuccess = false;

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.admin')
 
 @section('title', 'Azovmed - ортопедические товары оптом, производство медицинских изделий, медицинские товары оптом | ИП Азовцева С. Н. | ИП Азовцев В. С.')
 @section('meta_description')
@@ -23,34 +23,21 @@
 @endsection
 
 @section('content')
+    {{-- @include('modal.bid') --}}
+    {{-- @include('admin.pages.header') --}}
+    <livewire:pages.success-modal :key="'success'.now()"/>
+    <livewire:pages.header :key="'header'.now()"/>
     <livewire:pages.overview :key="'overview'.now()"/>
-    <div id="container">
-        <h1 style="text-align: center;">Медицинские и ортопедические товары оптом</h1>
-        <noindex>
-            <div id="catalog">
-                    @include('products.list', ['products' => $products])
-                <div style="clear:both"></div>
-            </div>
-        </noindex>
 
-        {{--<h2 style="text-align: center;">Изделия из шерсти (без РУ)</h2>--}}
-        {{--<noindex>--}}
-            {{--<div id="catalog">--}}
-                {{--@foreach($alt_cats as $alt_cat)--}}
-                    {{--@include('product/list', ['products' => $alt_cat->products, 'category' => $alt_cat])--}}
-                {{--@endforeach--}}
-                {{--<div style="clear:both"></div>--}}
-            {{--</div>--}}
-        {{--</noindex>--}}
-    </div>
-    @include('trust')
+    {{-- @include('trust') --}}
     <livewire:pages.privilege :key="'privilege'.now()"/>
-    @include('bid')
+    {{-- @include('bid') --}}
     <livewire:pages.how-work :key="'how'.now()"/>
     <livewire:pages.production :key="'production'.now()"/>
-    @include('sertificates')
-    @include('reviews')
-    @include('officeAddress')
-    @include('productionAddress')
+    {{-- @include('sertificates') --}}
+    {{-- @include('reviews') --}}
+    {{-- @include('officeAddress') --}}
+    {{-- @include('productionAddress') --}}
+    <livewire:pages.footer :key="'footer'.now()"/>
 @stop
 

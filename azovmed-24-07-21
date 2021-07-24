@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.33, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.25, for Linux (x86_64)
 --
 -- Host: localhost    Database: azovmed
 -- ------------------------------------------------------
--- Server version	5.7.33-0ubuntu0.16.04.1
+-- Server version	8.0.25-0ubuntu0.20.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,15 +21,15 @@
 
 DROP TABLE IF EXISTS `bids`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bids` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `phone_or_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `phone_or_email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=632 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=632 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,23 +48,23 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `body` text COLLATE utf8_unicode_ci,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `alias` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `meta_description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `body` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `position` int(11) DEFAULT NULL,
+  `position` int DEFAULT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `categories_alias_unique` (`alias`),
   UNIQUE KEY `categories_name_unique` (`name`),
   UNIQUE KEY `categories_position_unique` (`position`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,14 +83,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `failed_jobs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `failed_jobs` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
@@ -107,21 +107,107 @@ LOCK TABLES `failed_jobs` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `footers`
+--
+
+DROP TABLE IF EXISTS `footers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `footers` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `wb_indexText35` char(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText36` char(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `footers`
+--
+
+LOCK TABLES `footers` WRITE;
+/*!40000 ALTER TABLE `footers` DISABLE KEYS */;
+INSERT INTO `footers` VALUES (1,'+7 (926) 891-15-77\n+7 (926) 984-96-46','azovmed@bk.ru','2021-07-24 12:31:24','2021-07-24 12:34:33');
+/*!40000 ALTER TABLE `footers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `headers`
+--
+
+DROP TABLE IF EXISTS `headers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `headers` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `wb_indexText5_main_phone` char(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText5_email` char(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText5_text` char(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText3` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText4` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `headers`
+--
+
+LOCK TABLES `headers` WRITE;
+/*!40000 ALTER TABLE `headers` DISABLE KEYS */;
+INSERT INTO `headers` VALUES (1,'+7 (926) 891-15-77','azovmed@bk.ru','Получить заявку','Разработка и производство','товаров для здоровья с 1998 года','2021-07-23 10:44:50','2021-07-24 13:48:52');
+/*!40000 ALTER TABLE `headers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `how_works`
+--
+
+DROP TABLE IF EXISTS `how_works`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `how_works` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `wb_indexText39` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText41` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText40` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText42` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `how_works`
+--
+
+LOCK TABLES `how_works` WRITE;
+/*!40000 ALTER TABLE `how_works` DISABLE KEYS */;
+INSERT INTO `how_works` VALUES (1,'Заявки принимаются по телефону\n+7 (926) 891-15-77 и электронной почте\nazovmed@bk.ru','Покупатель\nоплачивает заказ','Менеджер компании связывается\nс клиентом для уточнения деталей заказа,\nсроков поставки, согласования счета','Azovmed комплектует посылку, отправляет\nтовары транспортной компанией\nили курьерской службой','2021-07-24 09:58:12','2021-07-24 10:42:42');
+/*!40000 ALTER TABLE `how_works` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `images`
 --
 
 DROP TABLE IF EXISTS `images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `images` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `images_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,24 +224,24 @@ UNLOCK TABLES;
 -- Table structure for table `migrations`
 --
 
--- DROP TABLE IF EXISTS `migrations`;
--- /*!40101 SET @saved_cs_client     = @@character_set_client */;
--- /*!40101 SET character_set_client = utf8 */;
--- CREATE TABLE `migrations` (
---   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
---   `batch` int(11) NOT NULL
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
--- /*!40101 SET character_set_client = @saved_cs_client */;
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `migrations` (
+  `migration` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `batch` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --
--- -- Dumping data for table `migrations`
--- --
+--
+-- Dumping data for table `migrations`
+--
 
--- LOCK TABLES `migrations` WRITE;
--- /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
--- INSERT INTO `migrations` VALUES ('2014_10_12_000000_create_users_table',1),('2014_10_12_100000_create_password_resets_table',1),('2016_05_03_001220_create_services_tables',2),('2016_05_23_092758_create_models_images',3),('2016_06_01_154105_alter_categories_table',4),('2016_06_07_184243_add_visibles',5),('2016_06_09_091737_create_bids',6);
--- /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
--- UNLOCK TABLES;
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES ('2014_10_12_000000_create_users_table',1),('2014_10_12_100000_create_password_resets_table',1),('2016_05_03_001220_create_services_tables',2),('2016_05_23_092758_create_models_images',3),('2016_06_01_154105_alter_categories_table',4),('2016_06_07_184243_add_visibles',5),('2016_06_09_091737_create_bids',6),('2019_08_19_000000_create_failed_jobs_table',7),('2020_11_05_102014_create_categories_table',8),('2020_11_05_102618_create_products_table',8),('2020_11_05_104144_create_images_table',8),('2020_11_05_114435_create_bids_table',8),('2021_07_20_125459_create_offers_table',9),('2021_07_23_112152_create_headers_table',10),('2021_07_23_150547_create_overviews_table',11),('2021_07_23_201919_create_privileges_table',12),('2021_07_24_124507_create_how_works_table',13),('2021_07_24_135032_create_productions_table',14),('2021_07_24_145637_create_footers_table',15);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `models_images`
@@ -163,16 +249,16 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `models_images`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `models_images` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `model_id` int(11) NOT NULL,
-  `image_id` int(11) NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `model_id` int NOT NULL,
+  `image_id` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `models_images_model_id_image_id_unique` (`model_id`,`image_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -186,19 +272,86 @@ INSERT INTO `models_images` VALUES (1,1,1,'2016-05-23 09:51:25','2016-05-23 09:5
 UNLOCK TABLES;
 
 --
+-- Table structure for table `offers`
+--
+
+DROP TABLE IF EXISTS `offers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `offers` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `from` char(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kpfile` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ipcard` char(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `offers`
+--
+
+LOCK TABLES `offers` WRITE;
+/*!40000 ALTER TABLE `offers` DISABLE KEYS */;
+INSERT INTO `offers` VALUES (3,'2021-07-21 08:41:38','2021-07-24 13:17:44','azovmed@bk.ru','attachments/zUtuwC7wWgzcbxMHiX2DTPLNGde9yRMlrqmQbySJ.docx','attachments/TmwjHtY7em38EGfVQc9X8wee8fUpMzTyByi9ixPO.docx','<p>Прайс-лист в приложении. Вы можете по нему рассчитать стоимость заказа, заполнив необходимые позиции.</p>\r\n<h2>Условия сотрудничества с оптовыми покупателями:</h2>\r\n<h3>Заказ и оплата:</h3>\r\n<ol type=\"1\">\r\n<li>Минимальная сумма заказа от 20 000 руб., любыми позициями и любым количеством; При заказе от 150 000 руб. скидка - 3%, от 300 000 руб. - 5%;</li>\r\n<li>Возможные формы оплаты &ndash; наличный и безналичный расчет;</li>\r\n<li>При оплате заказа по безналичному расчету: предоплата 100%;</li>\r\n<li>Мы работаем без НДС, по УСН;</li>\r\n<li>Мы запрещаем торговлю нашими товарами на маркетплейсах.</li>\r\n</ol>\r\n<h3>Сроки и условия доставки заказа:</h3>\r\n<ol type=\"1\">\r\n<li>Срок комплектации заказа 3-5 рабочих дней со дня поступления денег на наш расчетный счет;</li>\r\n<li>Доставка до транспортной компании \"Деловые линии\" осуществляется бесплатно;</li>\r\n<li>При заказе от 50 000 бесплатная доставка по Москве.</li>\r\n</ol>\r\n<h3>Приняв решение работать с нашей компанией, Вы приобретаете следующие преимущества:</h3>\r\n<ol type=\"1\">\r\n<li>Все наши изделия продаются в аптеках и имеют весь необходимый комплект документов;</li>\r\n<li>Изделия от производителя, пользующиеся активным спросом на протяжении 20 лет;</li>\r\n<li>Выгодные оптовые цены, напрямую от производителя;</li>\r\n<li>Мы продаём медицинские изделия только собственного производства, поэтому полностью контролируем качество своей продукции.</li>\r\n</ol>\r\n<h3>Если вы заинтересовались перспективой партнерства с нами, свяжитесь с нами по телефону прямо сейчас +7 (926) 891-15-77 или напишите на почту azovmed@bk.ru. Будем рады сотрудничеству!!!</h3>\r\n<p>С уважением,<br />Азовцев Валерий Сергеевич.<br /><strong>+7 (926) 891-15-77</strong><br />azovmed@bk.ru<br /><a href=\"http://www.azovmed.com\" target=\"_blank\" rel=\"noopener\">www.azovmed.com</a></p>');
+/*!40000 ALTER TABLE `offers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `overviews`
+--
+
+DROP TABLE IF EXISTS `overviews`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `overviews` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `wb_indexText7` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText2` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText10` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText9` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText6_digit` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText6_text` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText11` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText55` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText56` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText57` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText12` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText13` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText59` char(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `overviews`
+--
+
+LOCK TABLES `overviews` WRITE;
+/*!40000 ALTER TABLE `overviews` DISABLE KEYS */;
+INSERT INTO `overviews` VALUES (1,'ТОВАРЫ ДЛЯ ЗДОРОВЬЯ','оптовые поставки от производителя','и получите прайс и условия сотрудничества','Оставьте заявку','22','года','опыта на рынке','маржинальность','3100%','товара','постоянных','313','клиента','2021-07-23 16:24:53','2021-07-24 12:38:54');
+/*!40000 ALTER TABLE `overviews` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `password_resets`
 --
 
 DROP TABLE IF EXISTS `password_resets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   KEY `password_resets_email_index` (`email`),
   KEY `password_resets_token_index` (`token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,29 +364,87 @@ LOCK TABLES `password_resets` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `privileges`
+--
+
+DROP TABLE IF EXISTS `privileges`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `privileges` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `wb_indexText17` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText18` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText19` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText20` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText21` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `wb_indexText22` char(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `privileges`
+--
+
+LOCK TABLES `privileges` WRITE;
+/*!40000 ALTER TABLE `privileges` DISABLE KEYS */;
+INSERT INTO `privileges` VALUES (1,'Доставка до транспортной компании осуществляется бесплатно','Минимальная сумма\nзаказа - 20000 рублей','Качество каждого товара\nв ассортименте Azovmed подтверждено соответствующими сертификатами','Товары реализуются\nпо цене производителя','Медицинские изделия ортопедической, вспомогательной группы ТМ Azovmed проверены практикой и временем','Заказы выполняются оперативно: от подачи заявки до поставки товара проходит 1 - 5 дней','2021-07-24 09:01:22','2021-07-24 12:39:08');
+/*!40000 ALTER TABLE `privileges` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `productions`
+--
+
+DROP TABLE IF EXISTS `productions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `productions` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `wb_indexText31` text COLLATE utf8mb4_unicode_ci,
+  `wb_indexText15` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productions`
+--
+
+LOCK TABLES `productions` WRITE;
+/*!40000 ALTER TABLE `productions` DISABLE KEYS */;
+INSERT INTO `productions` VALUES (1,'       Уважаемый клиент!\nКомпания Azovmed предлагает востребованные товары медицинского назначения. Мы производим и реализуем продукцию для использования в ортопедии, травматологии, реабилитации. В Azovmed вы можете по выгодной оптовой цене приобрести:\n\nВ Azovmed вы можете по выгодной оптовой цене приобрести:\n• медицинские бандажи;\n• ортопедические корсеты;\n• игольчатые аппликаторы;\n• согревающие медицинские изделия (наколенники и пояса из шерсти).\n\n       Также мы предлагаем широкий ассортимент контейнеров для таблеток, рассчитанных на дневной, курсовой прием лекарств.\n       Компания Azovmed ориентирована на долгосрочное взаимовыгодное сотрудничество с оптовыми заказчиками. Мы гарантируем индивидуальный подход при организации поставок изделий медицинского назначения ортопедической, вспомогательной группы. Специалисты Azovmed разработают оптимальную для вас схему сотрудничества с учетом особенностей бизнеса, объемов реализации товаров представленного ассортимента.','       Мы предлагаем прямые поставки от производителя.\nСотрудничая с Azovmed, вы получаете возможность:\n• заказывать медицинские изделия в любом объеме (минимальная сумма заказа всего 20000 рублей) и в любое время;\n• экономить на доставке;\n• самостоятельно устанавливать розничную стоимость медицинских изделий ортопедического, вспомогательного назначения, регулировать объем прибыли;\n• оптимизировать затраты на упаковку, хранение товаров (изделия поставляются упакованными, на складе поставщика представленная продукция всегда в наличии);\n• расширить ассортимент предлагаемых клиентам изделий медицинского назначения за счет добавления в линейку востребованных товаров.\n\n       Azovmed гарантирует качество поставляемой продукции. Шитые и другие изделия изготавливаются на собственном оборудовании. Возможности производства обусловливают отсутствие ограничений в объемах поставок товаров.\n       Мы оперативно выполняем оптовые заказы, предлагаем каждому клиенту экспертную консультационную поддержку. Наши специалисты всегда на связи. Эксперты Azovmed проконсультируют вас по вопросам выбора товаров из представленного ассортимента, применения медицинских изделий в ортопедии и реабилитации.','2021-07-24 10:58:25','2021-07-24 11:37:37');
+/*!40000 ALTER TABLE `productions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `products`
 --
 
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `meta_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `category_id` int(11) NOT NULL,
-  `body` text COLLATE utf8_unicode_ci,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `alias` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `meta_description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_id` int NOT NULL,
+  `body` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `is_visible` tinyint(1) NOT NULL DEFAULT '0',
   `is_sale` tinyint(1) DEFAULT '0',
-  `position` tinyint(4) DEFAULT NULL,
+  `position` tinyint DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `models_alias_unique` (`alias`),
   UNIQUE KEY `models_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -252,18 +463,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -272,7 +483,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'igor','supral2@mail.ru','$2y$10$swj8G1mCHcb3nEbiS/pGN.1PBWHXKsqjWnnBsnfTqIx4QeVyltzVC','pgbQNvwKLC7kV8CO0QplWztaRZkwmP8e4YUUPrE9IaQsiDrXmOHPzG4B1x3C','2017-10-18 16:00:27','2017-10-22 18:30:19'),(2,'Valera','azovmed@bk.ru','$2y$10$jJzwMLbGRp45S1IFIUz1I.ZyaSEyFjFkKWErCXXuTQn54TGc3KXyi','8doGWEMSHBd2of3Gc7WaOpEWcChVVzzuQlapF2pvbzS6JOyhfm9xPUmjubnG','2017-10-22 18:30:57','2017-10-26 11:16:10');
+INSERT INTO `users` VALUES (1,'igor','supral2@mail.ru','$2y$10$swj8G1mCHcb3nEbiS/pGN.1PBWHXKsqjWnnBsnfTqIx4QeVyltzVC','pgbQNvwKLC7kV8CO0QplWztaRZkwmP8e4YUUPrE9IaQsiDrXmOHPzG4B1x3C','2017-10-18 16:00:27','2017-10-22 18:30:19'),(2,'Valera','azovmed@bk.ru','$2y$10$jJzwMLbGRp45S1IFIUz1I.ZyaSEyFjFkKWErCXXuTQn54TGc3KXyi','8doGWEMSHBd2of3Gc7WaOpEWcChVVzzuQlapF2pvbzS6JOyhfm9xPUmjubnG','2017-10-22 18:30:57','2017-10-26 11:16:10'),(3,'Вячеслав','x3mart@gmail.com','$2y$10$IuTVlGkliFmFlKLvHWg/3eUxiP5y1/HDghAkUgJq89uysjILVEE3m',NULL,'2021-07-23 08:36:19','2021-07-23 08:36:19');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -285,4 +496,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-20 16:47:52
+-- Dump completed on 2021-07-24 17:03:39

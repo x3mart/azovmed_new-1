@@ -25,7 +25,7 @@
 @section('content')
     <livewire:pages.overview :key="'overview'.now()"/>
     <div id="container">
-        <h1 style="text-align: center;">Медицинские и ортопедические товары оптом</h1>
+        <h1 style="text-align: center;">НАШИ ТОВАРЫ ОПТОМ <br> (полный ассортимент в прайс-листе)</h1>
         <noindex>
             <div id="catalog">
                     @include('products.list', ['products' => $products])

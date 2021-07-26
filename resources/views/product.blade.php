@@ -47,10 +47,10 @@
         <div style="clear:both"></div>
     </div>
 
-    @include('privilege')
+    <livewire:pages.privilege :key="'privilege'.now()"/>
     <noindex>
         @include('trust')
-        @include('howWork')
+        <livewire:pages.how-work :key="'how'.now()"/>
         @include('sertificates')
     </noindex>
 @stop

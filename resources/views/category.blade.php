@@ -23,8 +23,8 @@
         <div style="clear:both"></div>
     </div>
 
-    @include('privilege')
+    <livewire:pages.privilege :key="'privilege'.now()"/>
     <noindex>
-        @include('howWork')
+        <livewire:pages.how-work :key="'how'.now()"/>
     </noindex>
 @stop

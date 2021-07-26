@@ -11,7 +11,7 @@
                     @if($product->images->isNotEmpty())
                     <img title="{{ $product->name }} оптом, от производителя"
                          alt="{{ $product->name }} оптом, от производителя"
-                         style="width:170px; max-height: 150px;"
+                         style="max-width:170px; max-height: 150px;"
                          src="{{ asset($product->images->first()->name) }}">
                     @endif
                 </a>

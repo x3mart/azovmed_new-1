@@ -6,7 +6,7 @@
                 <div class="frame">
                     <div
                             style="width:416px;height:223px; text-align:center; background:#fff;">
-                        <img style="max-width:416px;max-height:216px;"
+                        <img style="max-width:416px;max-height:223px;"
                              title="{{ $product->name }} оптом, от производителя, фото #{{ $key + 1 }}"
                              alt="{{ $product->name }} оптом, от производителя, фото #{{ $key + 1 }}"
                              src="{{ asset($image->name) }}"></div>
